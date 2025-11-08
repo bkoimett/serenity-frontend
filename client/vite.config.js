@@ -6,8 +6,16 @@ export default defineConfig({
   server: {
     port: 5173,
   },
-  // Add this for Vercel
-  define: {
-    "process.env": {},
+  // Add this for proper production builds
+  build: {
+    outDir: "dist",
+    assetsDir: "assets",
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
+  // Ensure proper base path
+  base: "./",
 });
