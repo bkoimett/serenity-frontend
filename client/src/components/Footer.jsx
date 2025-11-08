@@ -9,9 +9,14 @@ import {
   MapPin,
 } from "lucide-react";
 
-import logo from "/the-serenity-place-logo-2026.svg";
+
 
 export function Footer() {
+
+  // logo image
+    const cloudinaryLogo =
+      "https://res.cloudinary.com/deci4v6zv/image/upload/v1762617272/the-serenity-place-logo-2026-removebg_ze7l7v.png";
+
   // tiktok icon
   const TikTokIcon = ({ className }) => (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -35,7 +40,7 @@ export function Footer() {
             <Link to="/" className="flex items-center space-x-3 mb-4">
               <div className="flex items-center justify-center">
                 <img
-                  src={logo}
+                  src={cloudinaryLogo}
                   alt="The Serenity Place Logo"
                   className="h-12 object-contain"
                 />
