@@ -23,26 +23,24 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 flex-shrink-0">
-            <div className="flex items-center justify-center">
-              <img
-                src={cloudinaryLogo}
-                alt="The Serenity Place Logo"
-                className="h-12 w-auto object-contain"
-              />
-            </div>
-            <div className="flex-shrink-0">
-              <span className="text-xl font-bold text-gray-900 block">
+          <Link to="/" className="flex items-center space-x-2 flex-shrink-0">
+            <img
+              src={cloudinaryLogo}
+              alt="The Serenity Place Logo"
+              className="h-10 w-auto object-contain sm:h-12"
+            />
+            <div className="hidden sm:block">
+              <span className="text-lg sm:text-xl font-bold text-gray-900 block leading-tight">
                 The Serenity Place
               </span>
-              <span className="block text-sm text-primary-600">
-                Rehabilitation Center Nairobi
+              <span className="block text-xs sm:text-sm text-primary-600">
+                Rehabilitation Center
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation - Hidden on mobile (below 768px) */}
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -58,24 +56,25 @@ export function Header() {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* Desktop CTA - Hidden on mobile */}
           <div className="hidden md:flex items-center space-x-4">
             <a
               href="tel:+254722970951"
-              className="flex items-center text-gray-600 hover:text-primary-600 whitespace-nowrap"
+              className="hidden lg:flex items-center text-gray-600 hover:text-primary-600 whitespace-nowrap"
             >
               <Phone className="w-4 h-4 mr-2" />
-              (+254) 722 970 951-HELP
+              (+254) 722 970 951
             </a>
             <Link to="/#contact" className="btn-primary whitespace-nowrap">
               Get Help
             </Link>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button - Only visible on mobile */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-md text-gray-600 hover:text-primary-600 hover:bg-gray-50 flex-shrink-0"
+            className="md:hidden p-2 rounded-md text-gray-600 hover:text-primary-600 hover:bg-gray-50 transition-colors"
+            aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -85,31 +84,35 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Only visible when menu is open */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 py-4">
-            <div className="flex flex-col space-y-2">
+          <div className="md:hidden border-t border-gray-200 py-4 animate-fadeIn">
+            <div className="flex flex-col space-y-1">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="block px-3 py-2 rounded-md font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors"
+                  className={`block px-3 py-2 rounded-md font-medium transition-colors ${
+                    location.pathname === item.href
+                      ? "bg-primary-50 text-primary-600"
+                      : "text-gray-700 hover:bg-gray-50 hover:text-primary-600"
+                  }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4 border-t border-gray-200">
+              <div className="pt-3 mt-3 border-t border-gray-200 space-y-2">
                 <a
                   href="tel:+254722970951"
-                  className="flex items-center px-3 py-2 text-gray-600 hover:text-primary-600 transition-colors"
+                  className="flex items-center px-3 py-2 rounded-md text-gray-600 hover:bg-gray-50 hover:text-primary-600 transition-colors"
                 >
                   <Phone className="w-4 h-4 mr-2" />
-                  (+254) 722 970 951-HELP
+                  (+254) 722 970 951
                 </a>
                 <Link
                   to="/#contact"
-                  className="block px-3 py-2 mt-2 btn-primary text-center"
+                  className="block mx-3 py-2 btn-primary text-center"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Get Help

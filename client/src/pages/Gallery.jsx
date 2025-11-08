@@ -8,6 +8,7 @@ import {
   QuickStaggerAnimation,
   StaggerItem,
 } from "../components/animations/ScrollAnimation";
+import { API_BASE_URL } from "../config/api"; 
 
 export function Gallery() {
   const [galleryItems, setGalleryItems] = useState([]);
