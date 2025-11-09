@@ -34,7 +34,7 @@ export function Header() {
                 The Serenity Place
               </span>
               <span className="block text-xs sm:text-sm text-primary-600">
-                Rehabilitation Center
+                Rehabilitation Center Nairobi
               </span>
             </div>
           </Link>
