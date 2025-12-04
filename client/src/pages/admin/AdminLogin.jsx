@@ -151,6 +151,7 @@ export function AdminLogin() {
             </p>
           </div>
           {/* // Add this to AdminLogin.jsx right before the form closing tag */}
+          {/*
           <button
             type="button"
             onClick={() => {
@@ -167,6 +168,7 @@ export function AdminLogin() {
           >
             Auto-fill Test Credentials
           </button>
+          */}
         </form>
       </div>
     </div>
