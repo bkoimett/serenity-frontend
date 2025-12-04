@@ -8,6 +8,7 @@ import { ContactForm } from "../components/ContactForm";
 import { BlogPreview } from "../components/BlogPreview";
 import { FeaturedGallery } from "../components/FeaturedGallery";
 import { ScrollAnimation } from "../components/animations/ScrollAnimation";
+import { WhatsAppButton, WhatsAppButtonSimple } from "../components/WhatsAppButton";
 
 export function Home() {
   const structuredData = {
@@ -31,6 +32,8 @@ export function Home() {
       <OrganizationSchema />
 
       <Hero />
+      {/* <WhatsAppButton /> */}
+      <WhatsAppButtonSimple/>
 
       <ScrollAnimation yOffset={80} duration={0.8}>
         <Services />
