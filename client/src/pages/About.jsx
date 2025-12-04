@@ -389,7 +389,7 @@ export function About() {
                       href="tel:+254722970951"
                       className="bg-white text-blue-600 hover:bg-blue-50 font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105"
                     >
-                      Call Now: (+254) 722 970 951-HELP
+                      Call Now: (+254) 722 970 951
                     </a>
                   </StaggerItem>
                   <StaggerItem>
