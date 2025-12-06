@@ -8,6 +8,10 @@ import {
   QuickStaggerAnimation,
   StaggerItem,
 } from "../components/animations/ScrollAnimation";
+import {
+  WhatsAppButton,
+  WhatsAppButtonSimple,
+} from "../components/WhatsAppButton";
 import { API_BASE_URL } from "../config/api"; 
 
 export function Gallery() {
@@ -66,6 +70,8 @@ export function Gallery() {
         keywords="rehabilitation center photos, treatment facility gallery, recovery center images Nairobi, Serenity Place facilities"
         ogImage="https://collection.cloudinary.com/deci4v6zv/d6eeba09b5b973a82733c1b7d43654c4"
       />
+      <WhatsAppButtonSimple/>
+      
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-600 to-teal-600 text-white py-16">

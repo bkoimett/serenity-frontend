@@ -17,6 +17,10 @@ import {
   StaggerItem,
 } from "../components/animations/ScrollAnimation";
 import { motion } from "framer-motion";
+import {
+  WhatsAppButton,
+  WhatsAppButtonSimple,
+} from "../components/WhatsAppButton";
 
 export function About() {
   const values = [
@@ -100,6 +104,8 @@ export function About() {
         keywords="about rehabilitation center, addiction treatment team, recovery mission Kenya, substance abuse professionals Nairobi"
         ogImage="https://collection.cloudinary.com/deci4v6zv/d6eeba09b5b973a82733c1b7d43654c4"
       />
+
+      < WhatsAppButtonSimple />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-600 to-teal-600 text-white py-16">

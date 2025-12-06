@@ -1,6 +1,10 @@
 // src/pages/Blog.jsx
 import { BlogList } from "../components/BlogList";
 import SEO from "../components/seo/SEO";
+import {
+  WhatsAppButton,
+  WhatsAppButtonSimple,
+} from "../components/WhatsAppButton";
 
 export function Blog() {
   return (
@@ -11,6 +15,8 @@ export function Blog() {
         keywords="addiction recovery blog, mental health articles Kenya, rehabilitation resources, substance abuse education Nairobi"
         ogImage="https://collection.cloudinary.com/deci4v6zv/d6eeba09b5b973a82733c1b7d43654c4"
       />
+
+      <WhatsAppButtonSimple/>
       <BlogList />
     </>
   );
