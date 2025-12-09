@@ -167,6 +167,8 @@ export function Footer() {
             © 2024 The Serenity Place Rehabilitation Centre Nairobi. <br />
             All rights reserved.
           </p>
+          <br></br>
+          <p>bkoimett</p>
         </div>
       </div>
     </footer>
