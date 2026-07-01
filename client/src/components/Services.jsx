@@ -86,6 +86,16 @@ export function Services() {
           ))}
         </div>
 
+        <div className="text-center mt-12">
+          <a
+            href="/services"
+            className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-lg transition-colors duration-200"
+          >
+            Learn more about our programs
+            <span className="ml-2">→</span>
+          </a>
+        </div>
+
         <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-blue-50 to-teal-50 rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">

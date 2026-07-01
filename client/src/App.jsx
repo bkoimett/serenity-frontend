@@ -4,6 +4,8 @@ import { AuthProvider } from "./context/AuthContext";
 import { Home } from "./pages/Home";
 import { Blog } from "./pages/Blog";
 import { About } from "./pages/About";
+import { Services } from "./pages/Services";
+import { Contact } from "./pages/Contact";
 import { Gallery } from "./pages/Gallery.jsx";
 import { BlogPost } from "./components/BlogPost";
 import { AdminLogin } from "./pages/admin/AdminLogin";
@@ -53,6 +55,22 @@ function App() {
             element={
               <Layout>
                 <About />
+              </Layout>
+            }
+          />
+          <Route
+            path="/services"
+            element={
+              <Layout>
+                <Services />
+              </Layout>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <Layout>
+                <Contact />
               </Layout>
             }
           />

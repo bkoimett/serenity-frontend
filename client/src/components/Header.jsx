@@ -10,9 +10,10 @@ export function Header() {
   const navigation = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
     { name: "Blog", href: "/blog" },
     { name: "Gallery", href: "/gallery" },
-    { name: "Contact", href: "/#contact" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const cloudinaryLogo =
