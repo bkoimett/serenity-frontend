@@ -81,6 +81,26 @@ export const useSEO = ({
     updateMetaTag("og:url", finalCanonical);
     updateMetaTag("og:site_name", "Serenity Place");
 
+    // Update Twitter Card tags (reuse OG values)
+    const updateNameMetaTag = (name, content) => {
+      let metaTag = document.querySelector(`meta[name="${name}"]`);
+      if (!metaTag) {
+        metaTag = document.createElement("meta");
+        metaTag.setAttribute("name", name);
+        document.head.appendChild(metaTag);
+      }
+      metaTag.content = content;
+    };
+
+    const finalOgImage =
+      ogImage ||
+      "https://collection.cloudinary.com/deci4v6zv/d6eeba09b5b973a82733c1b7d43654c4";
+
+    updateNameMetaTag("twitter:card", "summary_large_image");
+    updateNameMetaTag("twitter:title", fullTitle);
+    updateNameMetaTag("twitter:description", finalDescription);
+    updateNameMetaTag("twitter:image", finalOgImage);
+
     // Add structured data
     if (structuredData) {
       let scriptStructured = document.querySelector(
