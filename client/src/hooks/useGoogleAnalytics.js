@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 // Your GA4 Measurement ID (replace with your actual ID)
-export const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // ⚠️ REPLACE THIS WITH YOUR ACTUAL ID
+export const GA_MEASUREMENT_ID = "G-V4PNYSQ45K";
 
 // Initialize Google Analytics
 export const initGA = () => {
