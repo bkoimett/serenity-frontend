@@ -104,11 +104,12 @@ export const useSEO = ({
     // Add structured data
     if (structuredData) {
       let scriptStructured = document.querySelector(
-        'script[type="application/ld+json"]'
+        'script[type="application/ld+json"][data-seo-hook="true"]'
       );
       if (!scriptStructured) {
         scriptStructured = document.createElement("script");
         scriptStructured.type = "application/ld+json";
+        scriptStructured.setAttribute("data-seo-hook", "true");
         document.head.appendChild(scriptStructured);
       }
       scriptStructured.textContent = JSON.stringify(structuredData);
