@@ -1,6 +1,7 @@
 import { SitemapStream, streamToPromise } from "sitemap";
 import { createWriteStream } from "fs";
 import { join } from "path";
+import axios from "axios";
 
 const generateSitemap = async () => {
   try {
@@ -28,17 +29,29 @@ const generateSitemap = async () => {
       });
     });
 
-    // In a real app, you would fetch dynamic content here
-    // For example, blog posts from your API
-    // const blogPosts = await fetchBlogPosts();
-    // blogPosts.forEach(post => {
-    //   sitemap.write({
-    //     url: `/blog/${post.slug}`,
-    //     changefreq: 'monthly',
-    //     priority: 0.6,
-    //     lastmod: post.updatedAt
-    //   });
-    // });
+    // Fetch published blog posts from API
+    const apiBaseUrl = process.env.VITE_API_BASE_URL || "http://localhost:10000";
+    try {
+      const response = await axios.get(`${apiBaseUrl}/api/blog`, {
+        params: { limit: 1000 },
+      });
+
+      const blogPosts = response.data.blogs || [];
+
+      // Add published blog posts to sitemap
+      blogPosts.forEach((post) => {
+        sitemap.write({
+          url: `/blog/${post.slug}`,
+          changefreq: "monthly",
+          priority: 0.6,
+          lastmod: post.updatedAt || post.createdAt || new Date().toISOString(),
+        });
+      });
+
+      console.log(`✅ Added ${blogPosts.length} blog posts to sitemap`);
+    } catch (apiError) {
+      console.warn("⚠️  Could not fetch blog posts for sitemap:", apiError.message);
+    }
 
     sitemap.end();
 
