@@ -477,7 +477,10 @@ export function GalleryManager() {
               <img
                 src={item.image.secure_url}
                 alt={item.title}
+                width="341"
+                height="192"
                 className="w-full h-48 object-cover"
+                loading="lazy"
               />
             </div>
 

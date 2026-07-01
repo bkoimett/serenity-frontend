@@ -42,7 +42,10 @@ export function Footer() {
                 <img
                   src={cloudinaryLogo}
                   alt="The Serenity Place Logo"
+                  width="192"
+                  height="48"
                   className="h-12 object-contain"
+                  loading="lazy"
                 />
               </div>
               <div>

@@ -132,7 +132,10 @@ export function ContactForm() {
                       <img
                         src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg"
                         alt="Kenyan Flag"
+                        width="20"
+                        height="20"
                         className="w-5 h-5"
+                        loading="lazy"
                       />
                     </p>
                   </div>

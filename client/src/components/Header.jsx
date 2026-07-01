@@ -27,6 +27,8 @@ export function Header() {
             <img
               src={cloudinaryLogo}
               alt="The Serenity Place Logo"
+              width="160"
+              height="40"
               className="h-10 w-auto object-contain sm:h-12"
             />
             <div className="hidden sm:block">

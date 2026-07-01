@@ -144,6 +144,8 @@ export function Gallery() {
                           <img
                             src={item.image.secure_url}
                             alt={item.title}
+                            width="455"
+                            height="256"
                             className="w-full h-64 object-cover"
                             loading="lazy"
                           />
