@@ -30,6 +30,22 @@ export function GalleryManager() {
     image: null,
   });
 
+  useEffect(() => {
+    let metaTag = document.querySelector('meta[name="robots"]');
+    if (!metaTag) {
+      metaTag = document.createElement("meta");
+      metaTag.name = "robots";
+      document.head.appendChild(metaTag);
+    }
+    metaTag.content = "noindex, nofollow";
+
+    return () => {
+      if (metaTag) {
+        metaTag.remove();
+      }
+    };
+  }, []);
+
   const categories = [
     { value: "all", label: "All Categories" },
     { value: "nature", label: "Nature" },

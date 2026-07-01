@@ -26,6 +26,22 @@ export function Dashboard() {
   const [recentActivity, setRecentActivity] = useState([]);
 
   useEffect(() => {
+    let metaTag = document.querySelector('meta[name="robots"]');
+    if (!metaTag) {
+      metaTag = document.createElement("meta");
+      metaTag.name = "robots";
+      document.head.appendChild(metaTag);
+    }
+    metaTag.content = "noindex, nofollow";
+
+    return () => {
+      if (metaTag) {
+        metaTag.remove();
+      }
+    };
+  }, []);
+
+  useEffect(() => {
     // Mock data - replace with API calls
     setStats({
       totalBlogs: isAdmin ? 12 : 3, // Staff only sees their count

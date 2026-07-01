@@ -25,6 +25,22 @@ export function ContactManager() {
   const [stats, setStats] = useState(null);
   const [message, setMessage] = useState("");
 
+  useEffect(() => {
+    let metaTag = document.querySelector('meta[name="robots"]');
+    if (!metaTag) {
+      metaTag = document.createElement("meta");
+      metaTag.name = "robots";
+      document.head.appendChild(metaTag);
+    }
+    metaTag.content = "noindex, nofollow";
+
+    return () => {
+      if (metaTag) {
+        metaTag.remove();
+      }
+    };
+  }, []);
+
   const statusOptions = [
     { value: "all", label: "All Status", color: "gray" },
     { value: "new", label: "New", color: "blue" },

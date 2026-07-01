@@ -33,6 +33,22 @@ export function UserRegistration() {
   const [currentUser, setCurrentUser] = useState(null);
   const [showPasswordFields, setShowPasswordFields] = useState(false);
 
+  useEffect(() => {
+    let metaTag = document.querySelector('meta[name="robots"]');
+    if (!metaTag) {
+      metaTag = document.createElement("meta");
+      metaTag.name = "robots";
+      document.head.appendChild(metaTag);
+    }
+    metaTag.content = "noindex, nofollow";
+
+    return () => {
+      if (metaTag) {
+        metaTag.remove();
+      }
+    };
+  }, []);
+
   const API_BASE = `${API_BASE_URL}/api`;
 
   // Get current user from token

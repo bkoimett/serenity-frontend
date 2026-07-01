@@ -1,5 +1,5 @@
 // src/pages/admin/AdminLogin.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Eye, EyeOff, Lock, Mail } from "lucide-react";
@@ -49,6 +49,22 @@ export function AdminLogin() {
       [e.target.name]: e.target.value,
     });
   };
+
+  useEffect(() => {
+    let metaTag = document.querySelector('meta[name="robots"]');
+    if (!metaTag) {
+      metaTag = document.createElement("meta");
+      metaTag.name = "robots";
+      document.head.appendChild(metaTag);
+    }
+    metaTag.content = "noindex, nofollow";
+
+    return () => {
+      if (metaTag) {
+        metaTag.remove();
+      }
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-teal-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
