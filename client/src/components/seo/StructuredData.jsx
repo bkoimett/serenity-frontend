@@ -46,6 +46,38 @@ export const OrganizationSchema = () => {
   return null;
 };
 
+export const ContactSchema = () => {
+  useEffect(() => {
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      name: "The Serenity Place Rehabilitation Centre Kahawa Sukari",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Kiu River Road, 2nd South Avenue",
+        addressLocality: "Kahawa Sukari",
+        addressRegion: "Nairobi",
+        addressCountry: "KE",
+      },
+      telephone: "+254722970951",
+      url: "https://theserenityplace.org/contact",
+      medicalSpecialty: "Addiction Medicine",
+      priceRange: "$$",
+    };
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  return null;
+};
+
 export const ArticleSchema = ({
   headline,
   image,

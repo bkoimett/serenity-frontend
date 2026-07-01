@@ -1,6 +1,7 @@
 // src/pages/Contact.jsx
 import SEO from "../components/seo/SEO";
 import { ContactForm } from "../components/ContactForm";
+import { ContactSchema } from "../components/seo/StructuredData";
 import {
   WhatsAppButton,
   WhatsAppButtonSimple,
@@ -16,6 +17,7 @@ export function Contact() {
         ogImage="https://collection.cloudinary.com/deci4v6zv/d6eeba09b5b973a82733c1b7d43654c4"
         keywords="contact rehabilitation centre Nairobi, addiction treatment admissions Kenya, Serenity Place contact, Kahawa Sukari rehab phone number"
       />
+      <ContactSchema />
 
       <WhatsAppButtonSimple />
 
