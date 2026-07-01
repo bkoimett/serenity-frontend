@@ -46,29 +46,43 @@ export const OrganizationSchema = () => {
   return null;
 };
 
-export const ArticleSchema = ({ post }) => {
+export const ArticleSchema = ({
+  headline,
+  image,
+  datePublished,
+  dateModified,
+  author,
+  publisher,
+  mainEntityOfPage,
+}) => {
   useEffect(() => {
-    if (!post) return;
+    if (!headline) return;
 
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "Article",
-      headline: post.title,
-      description: post.excerpt || post.content?.substring(0, 160) || "",
+      headline,
       image:
-        post.image ||
+        image ||
         "https://collection.cloudinary.com/deci4v6zv/d6eeba09b5b973a82733c1b7d43654c4",
-      datePublished: post.createdAt,
-      dateModified: post.updatedAt || post.createdAt,
-      author: {
+      datePublished,
+      dateModified: dateModified || datePublished,
+      author: author || {
         "@type": "Organization",
-        name: "Serenity Place",
+        name: "The Serenity Place",
       },
-      publisher: {
+      publisher: publisher || {
         "@type": "Organization",
-        name: "Serenity Place",
+        name: "The Serenity Place",
       },
     };
+
+    if (mainEntityOfPage) {
+      structuredData.mainEntityOfPage = {
+        "@type": "WebPage",
+        "@id": mainEntityOfPage,
+      };
+    }
 
     const script = document.createElement("script");
     script.type = "application/ld+json";
@@ -78,7 +92,7 @@ export const ArticleSchema = ({ post }) => {
     return () => {
       document.head.removeChild(script);
     };
-  }, [post]);
+  }, [headline, image, datePublished, dateModified, author, publisher, mainEntityOfPage]);
 
   return null;
 };

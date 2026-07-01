@@ -1,5 +1,5 @@
 // src/components/BlogPost.jsx
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   Calendar,
@@ -18,7 +18,9 @@ import {
   StaggerItem,
 } from "../components/animations/ScrollAnimation";
 import { BlogPostSkeleton } from "./BlogPostSkeleton"; // Add this import
-import { API_BASE_URL } from "../config/api"; 
+import { API_BASE_URL } from "../config/api";
+import { useSEO } from "../hooks/useSEO";
+import { ArticleSchema } from "../components/seo/StructuredData";
 
 export function BlogPost() {
   const { id } = useParams();
@@ -29,7 +31,24 @@ export function BlogPost() {
   const [usingLocalData, setUsingLocalData] = useState(false);
   const [error, setError] = useState("");
 
-  const API_BASE = `${API_BASE_URL}/api`; 
+  const API_BASE = `${API_BASE_URL}/api`;
+
+  const seoDescription = useMemo(() => {
+    if (!blog) return undefined;
+    if (blog.excerpt) return blog.excerpt;
+    if (blog.content) {
+      const text = blog.content.replace(/<[^>]*>/g, "").trim();
+      return text.substring(0, 155);
+    }
+    return undefined;
+  }, [blog]);
+
+  useSEO({
+    title: blog?.title,
+    description: seoDescription,
+    ogImage: blog?.featuredImage,
+    canonical: blog?.slug ? `https://theserenityplace.org/blog/${blog.slug}` : undefined,
+  });
 
   // Fetch single blog post from backend
   useEffect(() => {
@@ -143,9 +162,27 @@ export function BlogPost() {
     );
   }
 
+  const articleSchemaAuthor = blog?.author?.name
+    ? { "@type": "Person", name: blog.author.name }
+    : { "@type": "Organization", name: "The Serenity Place" };
+
+  const articleSchemaCanonical = blog?.slug
+    ? `https://theserenityplace.org/blog/${blog.slug}`
+    : undefined;
+
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ArticleSchema
+          headline={blog?.title}
+          image={blog?.featuredImage}
+          datePublished={blog?.createdAt}
+          dateModified={blog?.updatedAt}
+          author={articleSchemaAuthor}
+          publisher={{ "@type": "Organization", name: "The Serenity Place Rehabilitation Centre Kahawa Sukari" }}
+          mainEntityOfPage={articleSchemaCanonical}
+        />
+
         {/* Data Source Indicator */}
         {usingLocalData && (
           <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mb-6">

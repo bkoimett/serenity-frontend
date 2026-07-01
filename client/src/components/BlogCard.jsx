@@ -53,7 +53,7 @@ export function BlogCard({ blog }) {
 
         {/* Read More Button */}
         <Link
-          to={`/blog/${blog._id}`}
+          to={`/blog/${blog.slug}`}
           className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors"
         >
           Read More
