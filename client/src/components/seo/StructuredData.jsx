@@ -128,3 +128,73 @@ export const ArticleSchema = ({
 
   return null;
 };
+
+export const FAQSchema = () => {
+  useEffect(() => {
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What types of treatment does The Serenity Place offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer a range of addiction and mental health treatment programs, including residential (inpatient) care, individual and group therapy, medically supervised detoxification, aftercare planning, and holistic wellness programs. Each treatment plan is tailored to the individual's needs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is The Serenity Place located?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We are located on Kiu River Road, 2nd South Avenue, Kahawa Sukari, Nairobi, Kenya."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get started or schedule a facility tour?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can reach us by phone at +254 722 970951 or through our contact form to discuss admissions, ask questions, or arrange a tour of our facility."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does The Serenity Place offer detox services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we provide medically supervised detoxification with round-the-clock clinical care to help manage withdrawal safely as part of the recovery process."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after I complete a treatment program?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We build a personalised aftercare plan for every client, including relapse prevention strategies, follow-up counselling, and support reintegrating into daily life, work, or school."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is treatment confidential?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. All therapy sessions, group support meetings, and client information are treated with strict confidentiality."
+          }
+        }
+      ]
+    };
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  return null;
+};

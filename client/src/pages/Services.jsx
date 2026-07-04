@@ -62,7 +62,7 @@ export function Services() {
   return (
     <>
       <SEO
-        title="Treatment Programs & Services | The Serenity Place Rehabilitation Centre"
+        title="Our Treatment Programs & Services | Serenity Place"
         description="Explore our addiction treatment and mental health programs in Kahawa Sukari, Nairobi — including residential care, detox, therapy, and aftercare support."
         canonical="https://theserenityplace.org/services"
         ogImage="https://collection.cloudinary.com/deci4v6zv/d6eeba09b5b973a82733c1b7d43654c4"

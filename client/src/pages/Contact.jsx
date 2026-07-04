@@ -11,8 +11,8 @@ export function Contact() {
   return (
     <>
       <SEO
-        title="Contact Us | The Serenity Place Rehabilitation Centre Kahawa Sukari"
-        description="Reach The Serenity Place Rehabilitation Centre in Kahawa Sukari, Nairobi. Call +254 722 970951 or send us a message to learn about admissions and treatment programs."
+        title="Contact The Serenity Place | Nairobi Rehab Center"
+        description="Reach The Serenity Place Rehabilitation Centre in Kahawa Sukari, Nairobi. Call +254 722 970951 to learn about admissions and treatment."
         canonical="https://theserenityplace.org/contact"
         ogImage="https://collection.cloudinary.com/deci4v6zv/d6eeba09b5b973a82733c1b7d43654c4"
         keywords="contact rehabilitation centre Nairobi, addiction treatment admissions Kenya, Serenity Place contact, Kahawa Sukari rehab phone number"
