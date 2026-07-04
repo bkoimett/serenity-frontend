@@ -14,17 +14,37 @@
       "/gallery"
     ],
     "puppeteerArgs": [
+      "--ash-no-nudges",
+      "--disable-domain-reliability",
+      "--disable-print-preview",
+      "--disk-cache-size=33554432",
+      "--no-default-browser-check",
+      "--no-pings",
+      "--single-process",
+      "--font-render-hinting=none",
+      "--disable-features=AudioServiceOutOfProcess,IsolateOrigins,site-per-process",
+      "--enable-features=SharedArrayBuffer",
+      "--ignore-gpu-blocklist",
+      "--in-process-gpu",
+      "--use-gl=angle",
+      "--use-angle=swiftshader",
+      "--enable-unsafe-swiftshader",
+      "--allow-running-insecure-content",
+      "--disable-setuid-sandbox",
+      "--disable-site-isolation-trials",
+      "--disable-web-security",
+      "--headless='shell'",
       "--no-sandbox",
-      "--disable-setuid-sandbox"
+      "--no-zygote"
     ],
-    "executablePath": "/usr/bin/google-chrome"
+    "puppeteerExecutablePath": "/tmp/chromium"
   },
   "scripts": {
     "start": "run dev",
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
-    "build": "vite build && react-snap && node src/utils/generateSitemap.js",
+    "build": "node src/utils/prepareChromium.cjs && vite build && react-snap && node src/utils/generateSitemap.js",
     "generate-sitemap": "node src/utils/generateSitemap.js"
   },
   "dependencies": {
