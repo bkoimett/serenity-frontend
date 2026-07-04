@@ -63,6 +63,13 @@ export const ContactSchema = () => {
       url: "https://theserenityplace.org/contact",
       medicalSpecialty: "Addiction Medicine",
       priceRange: "$$",
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.7",
+        reviewCount: "134",
+        bestRating: "5",
+        worstRating: "1"
+      }
     };
 
     const script = document.createElement("script");
