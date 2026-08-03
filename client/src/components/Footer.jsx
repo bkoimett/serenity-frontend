@@ -149,7 +149,7 @@ export function Footer() {
                   <Mail className="w-4 h-4 text-blue-300" />
                 </div>
                 <span className="text-blue-200 group-hover:text-white transition-colors">
-                  help@serenityplace.org
+                  serenityplace2013@gmail.com
                 </span>
               </div>
               <div className="flex items-start group">
